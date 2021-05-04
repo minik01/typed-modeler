@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useContext, useRef} from "react";
+import {Button, Col, Container, Form, Navbar} from "react-bootstrap";
+import {AuthContext} from "./context/AuthContext";
+import {LogIn} from "./components/LogIn";
+import {auth} from "./firebaseSetup";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const user = useContext(AuthContext);
+
+    const signOut = async () => {
+        await auth.signOut();
+    };
+    return (
+        <>
+            <Navbar className="justify-content-between" bg="dark" variant="dark">
+                <Navbar.Brand>Firebase Authentication</Navbar.Brand>
+                {user && <Button onClick={signOut}>Sign Out</Button>}
+            </Navbar>
+            {!user ? (<LogIn></LogIn>) : (
+                <h2 className="mt-4 text-center">Welcome {user.email}</h2>
+            )}
+
+
+        </>
+    );
 }
 
 export default App;
