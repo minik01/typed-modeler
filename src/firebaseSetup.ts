@@ -2,14 +2,15 @@ import firebase from "firebase/app";
 import "firebase/auth";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyClFun3oixBFgZzDqhhhbqTbiWyE47FecQ",
-    authDomain: "typed-modeler.firebaseapp.com",
-    projectId: "typed-modeler",
-    storageBucket: "typed-modeler.appspot.com",
-    messagingSenderId: "546376391143",
-    appId: "1:546376391143:web:295ffddbff10e75375c542",
-    measurementId: "G-8SXTLFQMBX"
+    apiKey: "AIzaSyBVNs6kkE2AmDCNqpd50yi19fEKxp4eoNk",
+    authDomain: "typed-modeler-2.firebaseapp.com",
+    databaseURL: "https://typed-modeler-2-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "typed-modeler-2",
+    storageBucket: "typed-modeler-2.appspot.com",
+    messagingSenderId: "322650688197",
+    appId: "1:322650688197:web:510d8f88d7f9a42aa93eac"
 };
+
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 // firebase.analytics();
