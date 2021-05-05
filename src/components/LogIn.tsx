@@ -1,10 +1,12 @@
-import React, {useRef} from "react";
+import React, {useRef, useState} from "react";
 import {auth} from "../firebaseSetup";
 import {Button, Col, Container, Form} from "react-bootstrap";
+import {AnimatePresence, motion} from "framer-motion";
 
 export function LogIn() {
     const emailRef = useRef<HTMLInputElement>(null);
     const passwordRef = useRef<HTMLInputElement>(null);
+    const [errorMsg, setErrorMsg] = useState('');
 
 
     const createAccount = async () => {
@@ -15,6 +17,8 @@ export function LogIn() {
             );
         } catch (error) {
             console.error(error);
+            setErrorMsg(error.message);
+            setTimeout(() => setErrorMsg(''), 2000);
         }
     };
 
@@ -26,6 +30,8 @@ export function LogIn() {
             );
         } catch (error) {
             console.error(error);
+            setErrorMsg(error.message);
+            setTimeout(() => setErrorMsg(''), 2000);
         }
     };
 
@@ -61,6 +67,17 @@ export function LogIn() {
                     </Button>
                 </Col>
             </Form.Row>
+
+            <AnimatePresence>
+                {errorMsg && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0, transition: {duration: 3} }}
+                        className="alert alert-danger" role="alert">{errorMsg}
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </Form>
     </Container>);
 }
