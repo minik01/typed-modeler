@@ -63,13 +63,15 @@ function App() {
                         modelOption={entities}
                     />
 
-                    <EntityList
-                        entities={entities}
-                    />
 
                     <CreateEntity
                         parentKey={modelPath.length ? (modelPath[modelPath.length - 1]) : null}
                     />
+
+                    <EntityList
+                        entities={entities}
+                    />
+
                 </div>
             )}
         </>

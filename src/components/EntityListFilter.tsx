@@ -43,6 +43,14 @@ export function EntityListFilter(props: { modelOption: TranslationKey[], modelPa
                 )}
 
             </DropdownButton>) : null}
+
+            <Button variant={"success"}
+                    onClick={() => {
+                        // show adding
+                    }}
+                    key={"+"}>
+                +
+            </Button>
         </ButtonGroup>
     )
 }
