@@ -1,13 +1,12 @@
-import { Entity } from "./Entity";
-import { uuid, str10, unixTimestamp } from "./types";
+import {uuid, str10} from "./types";
+import {TranslationKey} from "./TranslationKey";
 
-export class Language extends Entity {
+export class Language {
 
-    constructor(id_language: uuid,
-                protected shorthand: str10,
-                created?: unixTimestamp,
-                last_edit_time?: unixTimestamp,
-                last_edit_user?: uuid) {
-        super(id_language, created, last_edit_time, last_edit_user)
+    constructor(public readonly id_language: uuid,
+                public readonly shorthand: str10,
+                public longName: TranslationKey,
+                public autoTranslate: boolean
+    ) {
     }
 }
