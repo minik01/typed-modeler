@@ -5,7 +5,7 @@ import firebase from "firebase";
 import {Project} from "../model/Project";
 import {NewProjectModal} from "./NewProjectModal";
 
-export function ProjectBart(props: { setProject: any  }) {
+export function ProjectBart(props: { setProject: any }) {
     const [showModal, setShowModal] = useState<boolean>(false)
     const [projectsList, setProjectsList] = useState([])
 
@@ -38,9 +38,6 @@ export function ProjectBart(props: { setProject: any  }) {
                     <Dropdown.Item
                         onClick={() => {
                             setShowModal(true);
-                            // const updatedPath = JSON.parse(JSON.stringify(props.modelPath));
-                            // updatedPath.push(option);
-                            // props.setModelPath(updatedPath)
                         }
                         }
                         key={'+'}>
